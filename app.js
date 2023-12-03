@@ -4,6 +4,7 @@ require('dotenv').config();
 const path = require('path');
 const port = process.env.PORT
 const adminRoutes = require('./routes/admin')
+const authRoutes = require('./routes/auth')
 require('./config/database').connect()
 
 app.set('view engine', 'ejs')
@@ -14,6 +15,8 @@ app.get('/', (req, res) => {
 })
 
 app.use('/admin', adminRoutes)
+app.use('/login', authRoutes)
+
 app.get('/test', (req, res) => {
     res.render('dashboard.ejs')
 })
