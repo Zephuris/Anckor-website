@@ -5721,6 +5721,7 @@
 .bg-black{
     background-color:#000
 }
+
 .bg-white{
     background-color:#fff
 }
@@ -5993,6 +5994,9 @@
 }
 .bg-badge{
     background-color:var(--lqd-badge-color)
+}
+.bg-gradient{
+    background-color: linear-gradient(90deg, rgba(230,160,66,1) 0%, rgba(250,110,48,1) 27%, rgba(231,186,187,1) 51%, rgba(172,153,227,1) 78%, rgba(130,150,214,1) 100%);
 }
 .bg-current-color{
     background-color:currentColor
