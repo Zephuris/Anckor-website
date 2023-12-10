@@ -21,7 +21,7 @@ app.use('/admin', adminRoutes)
 app.use('/login', authRoutes)
 // app.use('/', generalRoutes)
 app.get('/', (req, res) => {
-  res.render('index.ejs')
+  res.render('index')
 })
 
 app.get('/test', (req, res) => {
