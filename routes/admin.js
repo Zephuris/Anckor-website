@@ -18,8 +18,6 @@ router.get('/users', isAuth, adminController.usersGet)
 
 router.post('/users', isAuth, adminController.usersPost)
 
-router.post('/logout', isAuth, (req, res) => {
-    //
-})
+router.post('/logout', isAuth, adminController.logoutPost)
 
 module.exports = router
