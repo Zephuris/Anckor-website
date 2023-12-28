@@ -2,44 +2,23 @@ const express = require('express');
 const router = express.Router()
 const adminController = require('../controllers/admin')
 const Users = require('../models/users')
+const isAuth = require('../controllers/isAuth')
 
-router.get('/', adminController.indexGet)
+router.get('/', isAuth, adminController.indexGet)
 
-router.get('/add-post', (req, res) => {
-    console.log('admin / add post / ')
-    res.render('add-post.ejs', { path: 'add-post' })
-})
+router.get('/add-post', isAuth, adminController.addPostGet)
 
-router.post('/add-post', (req, res) => {
+router.post('/add-post', isAuth, (req, res) => {
     //  
 })
 
-router.get('/posts', (req,res) => {
-    console.log('admin / posts / ')
-    res.render('posts.ejs', { path: 'posts'})
-})
+router.get('/posts', isAuth, adminController.postsGet)
 
-router.get('/users', (req,res) => {
-    console.log('admin / users / ')
-    res.render('users.ejs')
-})
+router.get('/users', isAuth, adminController.usersGet)
 
-router.post('/users', (req,res) => {
-    Users.collection.insertOne({
-        name: 'admin',
-        email: 'admin@example.com',
-        password: 'password',
-        token: 'token'
-    })
-    .then((result) => {
-        console.log(result + " User created successfully")
-    })
-    .catch((err) => {
-        console.log(err)
-    })
-})
+router.post('/users', isAuth, adminController.usersPost)
 
-router.post('/logout', (req, res) => {
+router.post('/logout', isAuth, (req, res) => {
     //
 })
 
