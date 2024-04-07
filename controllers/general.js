@@ -6,3 +6,7 @@ exports.indexGet = (req, res, next) => {
         
     })
 }
+
+exports.blogGet = (req, res, next) => {
+    res.render('index/index.ejs', {})
+}

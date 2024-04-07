@@ -30,6 +30,9 @@ app.use('/login', authRoutes)
 app.get('/', (req, res) => {
   res.render('index')
 })
+app.get('/blog', (req, res) => {
+  res.render('template/blog')
+})
 
 app.get('/test', (req, res) => {
     res.render('dashboard.ejs')
