@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const Posts = require('../models/posts')
 
 exports.indexGet = (req, res, next) => {
     console.log('admin /')
@@ -9,6 +10,30 @@ exports.indexGet = (req, res, next) => {
 exports.addPostGet = (req, res) => {
     console.log('admin / add post / ')
     res.render('add-post.ejs', { path: 'add-post' })
+}
+
+exports.addPostPost = (req, res) => {
+    const title = req.body.title
+    const slug = req.body.slug
+    const category = req.body.category
+    const desc = req.body.desc
+    const tags = req.body.tags
+    console.log('admin / add post / POST ')
+    console.log(title, slug, category, desc, tags)
+    Posts.collection.insertOne({
+        title: title,
+        slug: slug,
+        category: category,
+        desc: desc,
+        tags: tags,
+    })
+    .then((result) => {
+        console.log(result + " User created successfully")
+        res.render('posts.ejs', { path: 'posts'})
+    })
+    .catch((err) => {
+        console.log(err)
+    })
 }
 
 exports.postsGet = (req,res) => {

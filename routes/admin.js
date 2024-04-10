@@ -8,9 +8,7 @@ router.get('/', isAuth, adminController.indexGet)
 
 router.get('/add-post', isAuth, adminController.addPostGet)
 
-router.post('/add-post', isAuth, (req, res) => {
-    //  
-})
+router.post('/add-post', isAuth, adminController.addPostPost)
 
 router.get('/posts', isAuth, adminController.postsGet)
 
