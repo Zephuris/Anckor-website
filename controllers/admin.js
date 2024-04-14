@@ -28,7 +28,7 @@ exports.addPostPost = (req, res) => {
         tags: tags,
     })
     .then((result) => {
-        console.log(result + " User created successfully")
+        console.log(result + " Post created successfully")
         res.render('posts.ejs', { path: 'posts'})
     })
     .catch((err) => {
@@ -38,7 +38,10 @@ exports.addPostPost = (req, res) => {
 
 exports.postsGet = (req,res) => {
     console.log('admin / posts / ')
-    res.render('posts.ejs', { path: 'posts'})
+    Posts.find({})
+    .then((result) => {
+        res.render('posts.ejs', { path: 'posts', posts: result})
+    })
 }
 
 exports.usersGet = (req,res) => {

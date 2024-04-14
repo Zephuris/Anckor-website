@@ -22,7 +22,7 @@ app.set('view engine', 'ejs')
   
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use("/", express.static(path.join(__dirname, 'views')));
-app.use(session({ secret: 'anckorTabs', cookie: { maxAge: 60000 }}))
+app.use(session({ secret: 'anckorTabs', cookie: { maxAge: 500000 }}))
 
 app.use('/admin', adminRoutes)
 app.use('/login', authRoutes)
